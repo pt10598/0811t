@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, redirect, url_for
-from gevent import pywsgi
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 app = Flask(__name__)
@@ -28,5 +27,5 @@ def success(name,serc6,serc9):
            "<h2><input type='button' value='返回首頁' onclick='history.back()' style='width:90px;height:40px;'/></h2>"\
 
 
-server = pywsgi.WSGIServer(('0.0.0.0', 12345), app)
-server.serve_forever()
+if __name__ == '__main__':
+    app.run(host="0.0.0.0",port=5000)
